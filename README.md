@@ -1,11 +1,9 @@
-# Alienz
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/amaurilopez90/GameDev/Alienz/master/LICENSE)
+# Battle Spheres
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/amaurilopez90/GameDev/BattleSpheres/master/LICENSE)
 
-<a href="https://imgflip.com/gif/25nlcc"><img src="https://i.imgflip.com/25nlcc.gif" title="made at imgflip.com"/></a> 
+![BattleSpheresGif](https://github.com/amaurilopez90/GameDev/blob/master/BattleSpheres/BattleSpheresGif.gif) 
 
-Alienz is a 2-D survival game which challengs the player to fend off against waves of aliens using only 3 projectile weapons and a limited ammunition supply.
-The longer you survive, the more difficult the game becomes as enemies begin to increase movement speed as well as spawn rate. Be careful not to pick up consumables too early,
-because they won't last long!
+Battle Spheres is a 3D Sci-Fi **Multiplayer First-Person-Shooter** game made with Unity3D game engine and Unity's own multiplayer and networking interface **uNet**.    
 
 # Inspiration
 I've always been quite interested in game development and wanted to tackle a project idea that I've had for a long time. I was just learning the Python programming language and 
