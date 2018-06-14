@@ -3,19 +3,21 @@
 
 ![BattleSpheresGif](https://github.com/amaurilopez90/GameDev/blob/master/BattleSpheres/BattleSpheresGif.gif) 
 
-Battle Spheres is a 3D Sci-Fi **Multiplayer First-Person-Shooter** game made with Unity3D game engine and Unity's own multiplayer and networking interface **uNet**. Whether pit-up against your friends locally, or strangers over the network, each room of up to **6 Players** battle against eachother in a **Free-For-All style** tournament! 
+BattleSpheres is a 3D Sci-Fi **Multiplayer First-Person-Shooter** game made with Unity3D game engine and Unity's own multiplayer and networking interface **uNet**. Whether pit-up against your friends locally, or strangers over the network, each room of up to **6 Players** battle against eachother in a **Free-For-All style** tournament! 
 
 # Inspiration
-This was a project idea that I had while building **Alienz**
+This was a project idea that I had while building [Alienz](https://github.com/amaurilopez90/GameDev/tree/master/Alienz) as I had originally imagined **Alienz** to also be a 3D first-person-shooter survival game. But as that idea transitioned to be tile-based instead, I had reserved the first-person-shooter for **BattleSpheres**.  
 
 # How It Works
-Alienz is a tile-based game, that is the game map is sectioned off into small 32x32-pixel tiles with a total game map size of 800x608-pixels containing 475 tiles. 
+BattleSpheres is a typical Sci-Fi shooter that emerses the player (Spherical Drone) in a "simulated" environment made to model the area of a more primative setting, in an attempts to train the drone. Of course this was only a story idea, but the concepts remain the same between other first-person-shooters. 
 
-**Tiles:** 
-The tiles themselves fall into two categories: valid and invalid tiles. A tile being valid or invalid simply means whether or not the player is able to walk over it, and these were strategically placed such as to fit the outline of my custom-made game map using TileD and some downloaded textures.
+**Movement:** 
+The player models themselves do not exhibit any humanoid features that aid in movement, such as limbs or rigged bodies. Instead the player models are equipped with vertical and horiontal thrusters. Each player can observe their thruster usage through the **Thruster Fuel Guage** indicated by the blue vertical bar on the left side of the screen. This was accomplished through a **PlayerUI** element being updated at every frame based on the player's monitored thruster fuel, as well as a processed control that would apply either a vertical or horizontal `Vector3` **motion vector** to the player's current position based on which input key was pressed.
+All movement in monitored through the `PlayerController.cs` script which sits on the player as a component.
 
-**Processing:** 
-Processing user input from the keyboard simply involves moving the player sprite 32 pixels into the inputted direction, as well as changing the player's currently selected weapon by re-blitting the image of the weapon being selected over the sprite, and firing that weapon. Heavy error checking is placed into this, as the user must be prevented from walking onto an invalid tile, as well as walking outside the view of the playeable area.
+**Shooting**
+This game's shooting mechanism is accomplished through `Raycasting` which casts a ray from the "casters" position, that being the **FirePoint** sitting on the player's weapon under their **WeaponHolder**, in a straight line extending a specified range. If through that range the ray is interrupted by an object's `Collider`, information about the hit target can be recorded through a `Raycast` object. That information was used in the following way:
+  1. The object's `transform`.`position` and an identity `Quaternion rotation` was recorded to be able to spawn a `Particle System` hit effect at the location of the hit object
 
 **Consumables:**
 The player should notice that there are consumable items placed onto certain tiles spread about the game map in either the form of a flask or cartridge. These consumables are meant to increase the health of the player as well as increase the amount of ammunition alloted to that specfic weapon type. These stats can be viewed in the center of the screen which is updated upon either taking damage or shooting your enemy
