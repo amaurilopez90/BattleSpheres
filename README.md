@@ -3,11 +3,10 @@
 
 ![BattleSpheresGif](https://github.com/amaurilopez90/GameDev/blob/master/BattleSpheres/BattleSpheresGif.gif) 
 
-Battle Spheres is a 3D Sci-Fi **Multiplayer First-Person-Shooter** game made with Unity3D game engine and Unity's own multiplayer and networking interface **uNet**.    
+Battle Spheres is a 3D Sci-Fi **Multiplayer First-Person-Shooter** game made with Unity3D game engine and Unity's own multiplayer and networking interface **uNet**. Whether pit-up against your friends locally, or strangers over the network, each room of up to **6 Players** battle against eachother in a **Free-For-All style** tournament! 
 
 # Inspiration
-I've always been quite interested in game development and wanted to tackle a project idea that I've had for a long time. I was just learning the Python programming language and 
-figured this would be a great challenge to improve my skills a bit. I wanted to create a simple game that would be great to play whenever I wanted to just pass the time.
+This was a project idea that I had while building **Alienz**
 
 # How It Works
 Alienz is a tile-based game, that is the game map is sectioned off into small 32x32-pixel tiles with a total game map size of 800x608-pixels containing 475 tiles. 
