@@ -27,33 +27,30 @@ All player weapon activity is taken care of through the `PlayerWeapon.cs` and `W
 Around the map, as of right now, the only available consumable items to the player are weapon pickup items. These weapon pickup items are only `Unity Prefab` assets placed at different locations on the game map. When an item meets with a player's `Collider` then an `OnTriggerEnter` method is called, taking in the source (player) collider's as a parameter. From this, the player's **WeaponManager** component is retrieved to equip the weapon attached to the pickup prefab. When a player equips a weapon, the weapon is instantiated and placed as a child object under the player's **WeaponHolder** and enabled, while all other weapons currently active are disabled. Finally, a player attribute corresponding to that weapon is set, such that a player who currently has that weapon may not be able to pick it up again once it respawns. All weapon pickup item events are handled through the `WeaponPickup.cs` script component on the **WeaponPickup** prefab.  
 
 # The Player
-The player starts off in the center of the map with full health, and is equipped with three projectile weapons:
-  - The Shotgun issues yellow rounds, each of which deal damage equal half of to the enemy's health -> 2 Shot K.O.
-  - The Chaingun is a rapid fire weapon with each of it's shells dealing damage equal to one-sixth of the enemy's total health -> 6 Shot K.O
-  - The pistol has a medium fire rate, but also comes with the greatest amount of ammunition. Each bullet deals one-third of the enemy's total health -> 3 Shot K.O.
- 
- If an enemy gets within 1 tile away from the player's current position, then the player will begin to receive a constant decrease in health so long as the enemy continues to be within that range. This effect stacks for every enemy near the player!
- 
- Make sure to kill as many enemies as you can! The consumables will only come back the more you participate
- 
-# The Enemy
-Each enemy is it's own object and spawns at one of three locations on the map, in no particular spawning order or sequence - it is randomized! Some things that are worth noting:
+The player starts off spawned in at one of the 3 spawn points managed by the `NetworkManager` as `NetworkPosition` prefabs equipped with a **Sci-Fi Automatic** weapon and 20 rounds of ammunition. As of right now each player starts off with 100 health, but ideas are currently being implemented to later support player power-ups that may affect this.
 
-   - Each enemy may spawn at one of three locations
-   - Each enemy deals the same amount of constand damage when within 1 tile length away from the player
-   - After every 10 kills, the enemies begin to increase movement speed
-   - After every 15 kills, the enemies begin to increase spawn rate
-   
-Each enemy utilizes the A* Pathfinding Algorithm to constantly update the location of their "target" node, aka The Player, and find the optimal path to take in order to each it. A calculated route can be "interrupted" by invalid tiles, aka walls on the game map, and are then recalculated as such to compensate for these boundaries. Knowing this, the player should be warry of the path each enemy is taking, and should device a route to take in order to survive longer
+## Accounts
+Before the game can be played, and a room joined, the player must login to his/her account through the **Login Scene** which is a **GUI** that interfaces with the **Database Control** module
+
+  1. Each player is tied to a Player account associated through **Username** and **Password** handled through the **Database Control**
+  2. The **Database Control** provides user account registration support, and error checking. This database is in no way secure, it was implemented for the purpose of practice
+  3. **Player Stats** including the player's current **Kill** and **Death** records are displayed in the **Lobby** scene, and updated as the game progresses. Current game stats and progress can be checked through the **Scoreboard** in game.
+  
+## Death and Respawn
+Upon a player death, a death animation `Particle System` is instantiated and destroyed at the player's current location. Upon respawn, a spawn location is retrieved from a `NetworkPosition` component on the **Spawn Point** prefab and a respawn animation is instantiated. All player initial setup is handled through the `PlayerSetup.cs` script components on the player.
 
 # Controls
-  - Use the W,A,S,D keys to move
-  - Press(AND HOLD) the Spacebar to begin firing your weapon. Note: The weapon will only fire for as long as your hold down the fire button. Each weapon, depending on which is selected, will take some time to begin firing!
-  - Press the E key to cycle through each of the three projectile weapons
+  - Use the `W`,`A`,`S`,`D` keys to move
+  - Press(AND HOLD) the `Spacebar` to take flight using thrusters! Hovering expends Thruster Fuel indicated by the blue guage to the left
+  - Upon weapon pickup, a notification will be made at the top right-hand corner of the screen indicating this. A player may change their current weapon with the `Number Keys` or the `Mouse ScrollWheel`
+  - A player may aim down sights with their weapon using `Right Click`. The only weapon currently capable of this functionality is the **Sniper** rifle.
+  - A player may view the current status of the game and **Scoreboard** using the `Tab` key
+  - A player may navigate to their **Pause Screen** using the `Esc` key
   
 # Installation
-  1. Clone this repository using: **git clone**
-  2. Navigate to the "Alienz" subdirectory: GameDev/Alienz
-  3. Run ./main
+This game is currently in development and an ready build is not yet established. If you would like to contribute to a build then perform the following:
+
+  1. Clone this repository to your local machine: `git clone repo` replacing "repo" with the link to this repository
+  2. Open Unity3D and navigate to the "BattleSpheres" project folder and open
   
 # Enjoy!
