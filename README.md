@@ -13,7 +13,7 @@ BattleSpheres is a typical Sci-Fi shooter that emerses the player (Spherical Dro
 
 ## Movement 
 The player models themselves do not exhibit any humanoid features that aid in movement, such as limbs or rigged bodies. Instead the player models are equipped with vertical and horiontal thrusters. Each player can observe their thruster usage through the **Thruster Fuel Guage** indicated by the blue vertical bar on the left side of the screen. This was accomplished through a **PlayerUI** element being updated at every frame based on the player's monitored thruster fuel, as well as a processed control that would apply either a vertical or horizontal `Vector3` **motion vector** to the player's current position based on which input key was pressed.
-All movement in monitored through the `PlayerController.cs` script which sits on the player as a component.
+All movement is monitored through the `PlayerController.cs` script which sits on the player as a component.
 
 ## Shooting
 This game's shooting mechanism is accomplished through `Raycasting` which casts a ray from the "casters" position, that being the **FirePoint** sitting on the player's weapon under their **WeaponHolder**, in a straight line extending a specified range. If through that range the ray is interrupted by an object's `Collider`, information about the hit target can be recorded through a `Raycast` object. That information was used in the following way:
