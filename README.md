@@ -1,7 +1,7 @@
 # Battle Spheres
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/amaurilopez90/BattleSpheres/master/LICENSE)
 
-![BattleSpheresGif](https://github.com/amaurilopez90/GameDev/blob/master/BattleSpheres/BattleSpheresGif.gif) 
+![BattleSpheresGif](https://github.com/amaurilopez90/BattleSpheres/blob/master/BattleSpheresGif.gif) 
 
 BattleSpheres is a 3D Sci-Fi **Multiplayer First-Person-Shooter** game made with Unity3D game engine and Unity's own multiplayer and networking interface **uNet**. Whether pit-up against your friends locally, or strangers over the network, each room of up to **6 Players** battle against eachother in a **Free-For-All style** tournament! 
 
